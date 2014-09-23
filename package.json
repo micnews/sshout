@@ -1,0 +1,27 @@
+{
+  "name": "sshout",
+  "version": "1.0.0",
+  "description": "cli utility for running remote commands over ssh",
+  "homepage": "https://github.com/micnews/sshout",
+  "bugs": {
+    "url": "https://github.com/micnews/sshout/issues"
+  },
+  "bin": {
+    "sshout": "bin/sshout"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:micnews/sshout"
+  },
+  "dependencies": {
+    "rc": "^0.5.1"
+  },
+  "keywords": [
+    "ssh",
+    "remote",
+    "cli"
+  ],
+  "author": "mic.com",
+  "license": "MIT"
+}

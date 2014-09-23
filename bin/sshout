@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var ssh = require('../')()
+if (process.argv.length == 2) {
+  ssh('list')
+}
+else {
+  ssh(process.argv.splice(2).join(' '))
+}
