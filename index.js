@@ -33,9 +33,6 @@ module.exports = function (config) {
     })
 
     child.on('error', function() {})
-
-    child.stdout.pipe(process.stdout)
-    child.stderr.pipe(process.stderr)
   }
 
 }
