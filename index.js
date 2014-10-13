@@ -25,7 +25,7 @@ module.exports = function (config) {
       cmd
     ]
 
-    var child = spawn('ssh', args)
+    var child = spawn('ssh', args, { stdio: 'inherit' })
 
     child.on('close', function (code) {
       if (code === 0) return callback()
