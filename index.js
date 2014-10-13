@@ -20,6 +20,7 @@ module.exports = function (config) {
     var args = [
       '-p', config.port,
       '-l', config.user,
+      '-t', /* force interactive mode */
       config.host,
       cmd
     ]
