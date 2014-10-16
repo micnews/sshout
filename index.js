@@ -1,4 +1,5 @@
 var spawn = require('child_process').spawn
+var path = require('path')
 
 module.exports = function (config) {
 
@@ -13,17 +14,21 @@ module.exports = function (config) {
       cmd = 'ls -1 ' + config.scripts
     }
     else {
-      var prefix = config.scripts[0] !== '/' ? './' : ''
+      var prefix = (config.scripts[0] !== '/' ? './' : '')
       cmd = prefix + config.scripts + '/' + cmd
     }
 
     var args = [
       '-p', config.port,
       '-l', config.user,
-      '-t', /* force interactive mode */
-      config.host,
-      cmd
+      '-t' /* force interactive mode */
     ]
+
+    if (config.key) {
+      args = args.concat([ '-i', keyPath(config.key) ])
+    }
+
+    args = args.concat([config.host, cmd])
 
     var child = spawn('ssh', args, { stdio: 'inherit' })
 
@@ -35,4 +40,8 @@ module.exports = function (config) {
     child.on('error', function() {})
   }
 
+}
+
+function keyPath(key) {
+  return key.replace(/~/, process.env.HOME)
 }
