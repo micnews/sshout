@@ -20,7 +20,7 @@ Adds the `sshout` command when installed globally. Takes everything after `sshou
 * Since the client is very dumb and the server has all the logic, there is no need to keep clients up to date.
 * Scripts can be written in any scripting language.
 
-## Example - CLI
+## CLI
 
 Lets create an example environment where we can execute remote commands over ssh. We need the following:
 
@@ -65,16 +65,16 @@ The following commands are available:
 
 This module exports a constructor function, which returns a function for running remote ssh commands programmatically.
 
-### `var ssh = require('sshout')([config])`
+#### `var ssh = require('sshout')([config])`
 
 * `config` *(object)* Optional configuration object. See `configuration` below. If set, overrides configuration provided by `rc`.
 
-### `ssh(cmd[, callback])`
+#### `ssh(cmd[, callback])`
 
 * `cmd` *(string)* Command to execute on the server.
 * `callback` *(function)* Optional callback. Called with an `Error` object if the remote command failed.
 
-## Example - API
+#### Example
 
 ```js
 var ssh = require('sshout')({
@@ -82,6 +82,7 @@ var ssh = require('sshout')({
   user: 'ubuntu',
   port: 22,
   scripts: 'myscripts',
+  key: 'mykeyfile'
 })
 ssh('beepboop', function (err) {})
 ssh('somescript arg1 arg2 --flag=value', function (err) {})
@@ -95,5 +96,6 @@ Configuration for `sshout` is powered by [`rc`](https://github.com/dominictarr/r
 * `host` *(string)*: Server host.
 * `port` *(number, default: 22)*: Server port.
 * `scripts` *(string, default: `scripts`)*: Path to the folder hosting the commands, relative to `$HOME` for the current user. It can also be an absolute path.
+* `key` *(string, optional)*: Absolute path to key file name. Using `~` will be expanded to the users home folder.
 
 See [this](https://github.com/dominictarr/rc#standards) for more information on how `rc` handles file locations and [this](https://github.com/dominictarr/rc#configuration-file-formats) for information on the different file formats.
