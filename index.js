@@ -21,6 +21,7 @@ module.exports = function (config) {
     var args = [
       '-p', config.port,
       '-l', config.user,
+      '-o', 'LogLevel=QUIET',
       '-t' /* force interactive mode */
     ]
 
