@@ -1,6 +1,6 @@
 {
   "name": "sshout",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "cli utility for running remote commands over ssh",
   "homepage": "https://github.com/micnews/sshout",
   "bugs": {
