@@ -16,6 +16,7 @@ module.exports = function (config) {
     else {
       var prefix = (config.scripts[0] !== '/' ? './' : '')
       cmd = prefix + config.scripts + '/' + cmd
+      cmd = cmd.replace('&&', '\\&\\&')
     }
 
     var args = [
