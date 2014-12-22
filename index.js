@@ -22,9 +22,11 @@ module.exports = function (config) {
     var args = [
       '-p', config.port,
       '-l', config.user,
-      '-o', 'LogLevel=QUIET',
-      '-t' /* force interactive mode */
+      '-o', 'LogLevel=QUIET'
     ]
+
+    // force interactive mode
+    if (isTTY()) args.push('-t')
 
     if (config.key) {
       args = args.concat([ '-i', keyPath(config.key) ])
@@ -46,4 +48,10 @@ module.exports = function (config) {
 
 function keyPath(key) {
   return key.replace(/~/, process.env.HOME)
+}
+
+function isTTY() {
+  return process.stdin.isTTY
+    && process.stdout.isTTY
+    && process.stderr.isTTY
 }
