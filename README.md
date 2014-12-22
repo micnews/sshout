@@ -99,3 +99,9 @@ Configuration for `sshout` is powered by [`rc`](https://github.com/dominictarr/r
 * `key` *(string, optional)*: Absolute path to key file name. Using `~` will be expanded to the users home folder.
 
 See [this](https://github.com/dominictarr/rc#standards) for more information on how `rc` handles file locations and [this](https://github.com/dominictarr/rc#configuration-file-formats) for information on the different file formats.
+
+## Scripts environment
+
+The following extra environment variables will be passed for scripts to use:
+
+* `SCRIPTS`: The path of the scripts folder
